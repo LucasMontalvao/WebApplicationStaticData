@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplication_test.Models.ProductOrder>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.orderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.totalOrderValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.totalOrderValueDescount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalOrderValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalOrderValueDescount)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id=item.orderId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.orderId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

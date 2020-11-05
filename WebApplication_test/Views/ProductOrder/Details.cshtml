@@ -1,0 +1,58 @@
+﻿@model WebApplication_test.Models.ProductOrder
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ProductOrder</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.orderId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.orderId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.clientId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.clientId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Client.name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.totalOrderValue)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.totalOrderValue)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.totalOrderValueDescount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.totalOrderValueDescount)
+        </dd>
+    </dl>
+</div>
+
+<div class="form-group">
+    <a href="#" onclick="showProducts(@ViewBag.orderId)" class="btn btn-primary">Show Itens</a>
+</div>
+
+<div id="divOrderItensDetails" style="display:none;">
+
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script src="~/Scripts/Itens.js"></script>

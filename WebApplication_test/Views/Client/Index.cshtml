@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebApplication_test.Models.Client>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Client Registration</h1>
+
+<p>
+    <a asp-action="Create">Add a new Client</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.id }) |
+                @Html.ActionLink("Details", "Details", new { item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { item.id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
